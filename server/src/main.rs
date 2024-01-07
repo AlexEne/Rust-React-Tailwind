@@ -27,8 +27,7 @@ async fn main() -> Result<(), Error> {
         .without_time()
         .init();
 
-    let serve_dir = ServeDir::new("../client/dist")
-        .not_found_service(ServeFile::new("../client/dist/index.html"));
+    let serve_dir = ServeDir::new("dist").not_found_service(ServeFile::new("dist/index.html"));
 
     let app = Router::new()
         .route("/api/:name", get(get_foo_name))
