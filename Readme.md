@@ -21,5 +21,6 @@ Open your browser at `http://127.0.0.1:9000`
 ###
 To deploy use
 ```
+cargo lambda build --release
 cargo lambda deploy --enable-function-url server --include dist
 ```

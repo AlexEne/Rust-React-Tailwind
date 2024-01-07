@@ -16,6 +16,10 @@ async fn get_foo_name(Path(name): Path<String>) -> Json<Value> {
     Json(json!({ "msg": format!("I am POST /foo/:name, name={name}") }))
 }
 
+async fn get_incremented_number(Path(number): Path<i32>) -> Json<Value> {
+    Json(json!(number + 1))
+}
+
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     // required to enable CloudWatch error logging by the runtime
@@ -30,7 +34,8 @@ async fn main() -> Result<(), Error> {
     let serve_dir = ServeDir::new("dist").not_found_service(ServeFile::new("dist/index.html"));
 
     let app = Router::new()
-        .route("/api/:name", get(get_foo_name))
+        .route("/api/name/:name", get(get_foo_name))
+        .route("/api/increment/:count", get(get_incremented_number))
         .fallback_service(serve_dir);
 
     run(app).await
