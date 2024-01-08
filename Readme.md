@@ -18,9 +18,14 @@ cargo lambda watch
 Open your browser at `http://127.0.0.1:9000`
 
 
-###
-To deploy use
+### To deploy use
 ```
 cargo lambda build --release
 cargo lambda deploy --enable-function-url server --include dist
 ```
+
+### TODO
+- [ ] Get automagic reloads on `npm run build` to work when using `cargo lambda watch`
+- [ ] Check out solidjs.
+- [ ] ???
+- [ ] Profit
