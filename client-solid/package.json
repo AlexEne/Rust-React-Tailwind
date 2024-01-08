@@ -1,0 +1,25 @@
+{
+  "name": "client-solid",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "postbuild": "copyfiles -a dist/** ../server/"
+  },
+  "dependencies": {
+    "@solidjs/router": "^0.10.6",
+    "solid-js": "^1.8.7"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "copyfiles": "^2.4.1",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8",
+    "vite-plugin-solid": "^2.8.0"
+  }
+}
